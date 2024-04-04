@@ -1,4 +1,49 @@
 .login {
     background-color: var(--dark);
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue);
+    width: 50%;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    gap: 1.5rem;
+    border-radius: 1rem;
+}
+
+.login-input {
+    background-color: transparent;
+    border: none;
+    padding: 1rem;
+    border-bottom: 1px solid var(--grey) ;
+}
+
+.login-button {
+    background-color: var(--red);
+    cursor: pointer;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 0.4rem;
+}
+
+.login-account {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.login-sign-up {
+    color: var(--red);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+
 }
