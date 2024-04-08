@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./Login.css";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isEmpty, setIsEmpty] = useState(false);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+    setIsEmpty(false); // Setze isEmpty auf false, wenn das Input-Feld geändert wird
+  };
+
+  const handleButtonClick = (event) => {
+    event.preventDefault();
+    if (password.trim() === "") {
+      setIsEmpty(true);
+    }
+  };
+
   return (
     <div className="login">
       <svg
@@ -18,20 +39,28 @@ function Login() {
       <form className="login-form">
         <h1>Login</h1>
         <input
-          className="login-input"
+          className={isEmpty ? "login-input login-input-empty" : "login-input"}
           type="email"
           id="email"
           name="email"
-          placeholder="Email Address"
+          placeholder={isEmpty ? "Email address (can't be empty)" : "Email address"}
+          value={email}
+          onChange={handleInputChange}
         />
         <input
-          className="login-input"
+          className={isEmpty ? "login-input login-input-empty" : "login-input"}
           type="password"
           id="password"
           name="password"
-          placeholder="Password"
+          placeholder={isEmpty ? "Password (can't be empty)" : "Password"}
+          value={password}
+          onChange={handleInputChange}
         />
-        <button className="s login-button" type="submit">
+        <button
+          className="s login-button"
+          type="submit"
+          onClick={handleButtonClick}
+        >
           Login to your account
         </button>
         <div className="login-account">
