@@ -6,6 +6,8 @@
 
 html {
   font-size: 16px;
+  background-color: var(--dark);
+  margin: 1rem;
 }
 
 :root {
