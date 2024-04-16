@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [isEmptyEmail, setIsEmptyEmail] = useState(false);
+  const [isEmptyPassword, setIsEmptyPassword] = useState(false);
+
+  const isValidEmail = (email) => {
+    // Einfache Überprüfung auf Gültigkeit einer E-Mail-Adresse
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -13,13 +20,17 @@ function Login() {
     } else if (name === "password") {
       setPassword(value);
     }
-    setIsEmpty(false); // Setze isEmpty auf false, wenn das Input-Feld geändert wird
+    setIsEmptyEmail(false);
+    setIsEmptyPassword(false); // Setze isEmpty auf false, wenn das Input-Feld geändert wird
   };
 
   const handleButtonClick = (event) => {
     event.preventDefault();
     if (password.trim() === "") {
-      setIsEmpty(true);
+      setIsEmptyPassword(true);
+    }
+    if (email.trim() === "" || !isValidEmail(email)) {
+      setIsEmptyEmail(true);
     }
   };
 
@@ -39,20 +50,26 @@ function Login() {
       <form className="login-form">
         <h1>Login</h1>
         <input
-          className={isEmpty ? "login-input login-input-empty" : "login-input"}
+          className={
+            isEmptyEmail ? "login-input login-input-empty" : "login-input"
+          }
           type="email"
           id="email"
           name="email"
-          placeholder={isEmpty ? "Email address (can't be empty)" : "Email address"}
+          placeholder={
+            isEmptyEmail ? "Email address can't be empty" : "Email address"
+          }
           value={email}
           onChange={handleInputChange}
         />
         <input
-          className={isEmpty ? "login-input login-input-empty" : "login-input"}
+          className={
+            isEmptyPassword ? "login-input login-input-empty" : "login-input"
+          }
           type="password"
           id="password"
           name="password"
-          placeholder={isEmpty ? "Password (can't be empty)" : "Password"}
+          placeholder={isEmptyPassword ? "Password can't be empty" : "Password"}
           value={password}
           onChange={handleInputChange}
         />
