@@ -5,19 +5,21 @@ const TrendingItem = () => {
   return (
     <div className="trendingitem-container">
       <div className="trendingitem-item-cart">
-        <svg
-          className="trendingitem-bookmark"
-          width="12"
-          height="14"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
-            stroke="#FFF"
-            stroke-width="1.5"
-            fill="none"
-          />
-        </svg>
+        <div className="trendingitem-bookmark-container">
+          <svg
+            className="trendingitem-bookmark"
+            width="12"
+            height="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
+              stroke="#FFF"
+              stroke-width="1.5"
+              fill="none"
+            />
+          </svg>
+        </div>
         <div className="trendingitem-description">
           <div className="trendingitem-category">
             <p className="trendingitem-p">2019</p>
