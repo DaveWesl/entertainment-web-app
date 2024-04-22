@@ -1,0 +1,47 @@
+.trendingitem-container {
+    width: 40%;
+}
+
+.trendingitem-item-cart {
+    background-image: url('../../../public/assets/thumbnails/beyond-earth/trending/large.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 13rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+.trendingitem-bookmark {
+    margin-left: auto;
+}
+
+.trendingitem-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.trendingitem-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.trendingitem-p {
+    color: rgb(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+@media screen and (max-width: 800px) {
+    .trendingitem-container {
+        width: 65%;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+
+  }
+
