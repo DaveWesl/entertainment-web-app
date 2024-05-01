@@ -1,15 +1,15 @@
 .home-container {
     display: flex;
     gap: 1rem;
-    width: 100%;
 }
 
 .home-div {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
     height: 100%;
     gap: 1rem;
+    padding-right: 1rem;
 }
 
 @media screen and (max-width: 800px) {

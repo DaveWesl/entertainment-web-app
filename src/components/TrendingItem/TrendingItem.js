@@ -66,7 +66,7 @@ const TrendingItem = ({ movie, isBookmarkedProp, onBookmarkClick }) => {
             <p className="trendingitem-p">{category}</p>
             <p className="trendingitem-p">{rating}</p>
           </div>
-          <h3 className="trendingitem-h3">{title}</h3>
+          <h2 className="trendingitem-h2">{title}</h2>
         </div>
       </div>
     </div>
