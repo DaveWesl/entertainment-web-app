@@ -3,7 +3,7 @@ import "./RecommendedItem.css";
 
 const RecommendedItem = ({ movie, isBookmarkedProp, onBookmarkClick }) => {
   const { title, thumbnail, year, category, rating } = movie;
-  const largeThumbnail = thumbnail && !thumbnail.trending ? thumbnail.regular?.large : undefined; // Using optional chaining to handle undefined properties
+  const largeThumbnail = thumbnail?.regular?.large; // Using optional chaining to handle undefined properties
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedProp);
 
   const backgroundImageStyle = {

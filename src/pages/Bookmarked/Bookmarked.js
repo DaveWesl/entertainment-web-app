@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Bookmarked.css";
 import Navbar from "../../components/Navbar/Navbar";
 import SearchBar from "../../components/Searchbar/Searchbar";
-import Trending from "../../components/Trending/Trending";
 import Recommended from "../../components/Recommended/Recommended";
 
+import movieData from "../../data.json";
+
 function Bookmarked() {
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies1, setFilteredMovies1] = useState([]);
+
+
+  useEffect(() => {
+    // Filtere die Filme nach der Bedingung !movie.thumbnail.trending
+    const filtered = movieData.filter(movie => movie.category === "TV Series" && movie.isBookmarked);
+    const filtered1 = movieData.filter(movie => movie.category === "Movie" && movie.isBookmarked);
+    setFilteredMovies(filtered);
+    setFilteredMovies1(filtered1);
+  }, []);
+
   return (
-    <div className="home-container">
+    <div className="bookmarked-container">
       <Navbar />
-      <div className="home-div">
+      <div className="bookmarked-div">
         <SearchBar />
-        <Trending/>
-        <Recommended/>
+        <Recommended movies={filteredMovies1} title="Bookmarked Movies"/>
+        <Recommended movies={filteredMovies} title="Bookmarked Series"/>
       </div>
     </div>
   );

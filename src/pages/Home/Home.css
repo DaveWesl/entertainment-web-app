@@ -9,7 +9,6 @@
     width: 95%;
     height: 100%;
     gap: 1rem;
-    padding-right: 1rem;
 }
 
 @media screen and (max-width: 800px) {

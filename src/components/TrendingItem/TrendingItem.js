@@ -3,7 +3,7 @@ import "./TrendingItem.css";
 
 const TrendingItem = ({ movie, isBookmarkedProp, onBookmarkClick }) => {
   const { title, thumbnail, year, category, rating } = movie;
-  const largeThumbnail = thumbnail?.trending?.large; // Using optional chaining to handle undefined properties
+  const largeThumbnail = thumbnail?.regular?.large; // Using optional chaining to handle undefined properties
   const [isBookmarked, setIsBookmarked] = useState(isBookmarkedProp);
 
   const backgroundImageStyle = {

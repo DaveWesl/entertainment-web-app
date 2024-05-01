@@ -1,45 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./Recommended.css";
 import RecommendedItem from "../RecommendedItem/RecommendedItem";
 
 import movieData from "../../data.json";
 
-const Recommended = () => {
-  const [movies, setMovies] = useState([]);
-  
+const Recommended = ({ movies, title }) => {
+  const [filteredMovies, setFilteredMovies] = useState([]);
+
   useEffect(() => {
     // Beim Laden der Komponente, überprüfe den localStorage und setze den Zustand entsprechend
-    const storedMovies = JSON.parse(localStorage.getItem('movies'));
+    const storedMovies = JSON.parse(localStorage.getItem("movies"));
     if (storedMovies) {
-      setMovies(storedMovies);
+      setFilteredMovies(storedMovies);
     } else {
-      setMovies(movieData);
+      setFilteredMovies(movies || movieData); // Fallback zu movieData, wenn movies nicht vorhanden ist
     }
-  }, []);
+  }, [movies]); // Überwache die Änderungen von movies, um den Effekt bei Bedarf neu auszuführen
 
   const handleBookmarkClick = (index) => {
-    const updatedMovies = [...movies];
+    const updatedMovies = [...filteredMovies];
     updatedMovies[index].isBookmarked = !updatedMovies[index].isBookmarked;
-    setMovies(updatedMovies);
+    setFilteredMovies(updatedMovies);
     // Speichere die aktualisierten Daten im localStorage
-    localStorage.setItem('movies', JSON.stringify(updatedMovies));
+    localStorage.setItem("movies", JSON.stringify(updatedMovies));
   };
 
   return (
     <>
-      <h1 className="recommendedItem-h1">Recommended for you</h1>
+      <h1 className="recommendedItem-h1">{title}</h1>
       <div className="recommended-container">
-        {movies.map((movie, index) =>
-          // Überprüfe, ob der Film/Serie als "trending" markiert ist
-          movie && !movie.thumbnail.trending ? (
-            <RecommendedItem
-              key={index}
-              movie={movie} // Zugriff auf das regular Objekt von thumbnail
-              isBookmarkedProp={movie.isBookmarked}
-              onBookmarkClick={() => handleBookmarkClick(index)}
-            />
-          ) : null
-        )}
+        {movies.map((movie, index) => (
+          <RecommendedItem
+            key={index}
+            movie={movie}
+            isBookmarkedProp={movie.isBookmarked}
+            onBookmarkClick={() => handleBookmarkClick(index)}
+          />
+        ))}
       </div>
     </>
   );
