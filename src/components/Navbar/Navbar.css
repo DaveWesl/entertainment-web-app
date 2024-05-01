@@ -29,8 +29,9 @@
   transition: fill 0.3s ease;
 }
 
-.navbar-category-item:hover path {
-  fill: white;
+.navbar-category-item:hover path,
+.navbar-category-item.active-link path {
+  fill: white; /* Farbe beim Überfahren oder wenn Link aktiv ist */
 }
 
 .navbar-avatar {
