@@ -24,6 +24,7 @@ function Home() {
         <Trending />
         <Recommended movies={filteredMovies} title="Recommended for you"/>
       </div>
+      
     </div>
   );
 }
