@@ -1,40 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Recommended.css";
 import RecommendedItem from "../RecommendedItem/RecommendedItem";
 
-import movieData from "../../data.json";
-
-const Recommended = ({ movies, title }) => {
-  const [filteredMovies, setFilteredMovies] = useState([]);
-
-  useEffect(() => {
-    // Beim Laden der Komponente, überprüfe den localStorage und setze den Zustand entsprechend
-    const storedMovies = JSON.parse(localStorage.getItem("movies"));
-    if (storedMovies) {
-      setFilteredMovies(storedMovies);
-    } else {
-      setFilteredMovies(movies || movieData); // Fallback zu movieData, wenn movies nicht vorhanden ist
-    }
-  }, [movies]); // Überwache die Änderungen von movies, um den Effekt bei Bedarf neu auszuführen
-
-  const handleBookmarkClick = (index) => {
-    const updatedMovies = [...filteredMovies];
-    updatedMovies[index].isBookmarked = !updatedMovies[index].isBookmarked;
-    setFilteredMovies(updatedMovies);
-    // Speichere die aktualisierten Daten im localStorage
-    localStorage.setItem("movies", JSON.stringify(updatedMovies));
+const Recommended = ({ movies, title, handleBookmarkClick }) => {
+  const handleBookmark = (index) => {
+    handleBookmarkClick(index); // Rufe die handleBookmarkClick-Funktion aus den Props auf
   };
 
   return (
     <>
       <h1 className="recommendedItem-h1">{title}</h1>
       <div className="recommended-container">
-        {movies.map((movie, index) => (
+        {movies.map((movie) => (
           <RecommendedItem
-            key={index}
+            key={movie.title}
             movie={movie}
             isBookmarkedProp={movie.isBookmarked}
-            onBookmarkClick={() => handleBookmarkClick(index)}
+            onBookmarkClick={() => handleBookmark(movie.title)}
           />
         ))}
       </div>

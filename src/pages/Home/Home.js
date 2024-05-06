@@ -5,16 +5,15 @@ import SearchBar from "../../components/Searchbar/Searchbar";
 import Trending from "../../components/Trending/Trending";
 import Recommended from "../../components/Recommended/Recommended";
 
-import movieData from "../../data.json";
 
-function Home() {
+function Home({ movies, handleBookmarkClick }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
     // Filtere die Filme nach der Bedingung !movie.thumbnail.trending
-    const filtered = movieData.filter(movie => !movie.thumbnail.trending);
+    const filtered = movies.filter(movie => !movie.thumbnail.trending);
     setFilteredMovies(filtered);
-  }, []);
+  }, [movies]);
 
   return (
     <div className="home-container">
@@ -22,7 +21,7 @@ function Home() {
       <div className="home-div">
         <SearchBar />
         <Trending />
-        <Recommended movies={filteredMovies} title="Recommended for you"/>
+        <Recommended movies={filteredMovies} handleBookmarkClick={handleBookmarkClick} title="Recommended for you"/>
       </div>
       
     </div>
