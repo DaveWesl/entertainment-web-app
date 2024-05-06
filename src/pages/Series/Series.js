@@ -4,23 +4,21 @@ import Navbar from "../../components/Navbar/Navbar";
 import SearchBar from "../../components/Searchbar/Searchbar";
 import Recommended from "../../components/Recommended/Recommended";
 
-import movieData from "../../data.json";
-
-function Series() {
+function Series({ movies, handleBookmarkClick }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
     // Filtere die Filme nach der Bedingung !movie.thumbnail.trending
-    const filtered = movieData.filter(movie => movie.category === "TV Series");
+    const filtered = movies.filter(movie => movie.category === "TV Series");
     setFilteredMovies(filtered);
-  }, []);
+  }, [movies]);
 
   return (
     <div className="series-container">
       <Navbar />
       <div className="series-div">
         <SearchBar />
-        <Recommended movies={filteredMovies} title="Series"/>
+        <Recommended movies={filteredMovies} handleBookmarkClick={handleBookmarkClick} title="Series"/>
       </div>
     </div>
   );

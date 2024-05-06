@@ -33,9 +33,9 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home movies={movies} handleBookmarkClick={handleBookmarkClick} />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/series" element={<Series />} />
-          <Route path="/bookmarked" element={<Bookmarked />} />
+          <Route path="/movies" element={<Movies movies={movies} handleBookmarkClick={handleBookmarkClick}/>} />
+          <Route path="/series" element={<Series movies={movies} handleBookmarkClick={handleBookmarkClick}/>} />
+          <Route path="/bookmarked" element={<Bookmarked movies={movies} handleBookmarkClick={handleBookmarkClick}/>} />
         </Routes>
       </div>
     </Router>
