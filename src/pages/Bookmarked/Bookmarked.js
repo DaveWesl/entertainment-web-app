@@ -16,6 +16,7 @@ function Bookmarked({ movies, handleBookmarkClick }) {
     setFilteredMovies(filtered);
     setFilteredMovies1(filtered1);
   }, [movies]);
+  
 
   return (
     <div className="bookmarked-container">
