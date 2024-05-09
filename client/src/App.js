@@ -5,6 +5,8 @@ import Home from "./pages/Home/Home";
 import Movies from "./pages/Movies/Movies";
 import Series from "./pages/Series/Series";
 import Bookmarked from "./pages/Bookmarked/Bookmarked";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/SignUp";
 import movieData from "./data.json";
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
               />
             }
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </div>
     </Router>

@@ -7,12 +7,7 @@ function Navbar() {
 
   return (
     <div className="navbar-container">
-      <Link
-        to="/"
-        className={
-          location.pathname === "/"
-        }
-      >
+      <Link to="/" className={location.pathname === "/"}>
         <svg
           className="navbar-logo"
           width="33"
@@ -107,11 +102,13 @@ function Navbar() {
           </svg>
         </Link>
       </div>
-      <img
-        className="navbar-avatar"
-        src={process.env.PUBLIC_URL + "/assets/image-avatar.png"}
-        alt="Avatar"
-      />
+      <Link to="/login" className={location.pathname === "/login"}>
+        <img
+          className="navbar-avatar"
+          src={process.env.PUBLIC_URL + "/assets/image-avatar.png"}
+          alt="Avatar"
+        />
+      </Link>
     </div>
   );
 }

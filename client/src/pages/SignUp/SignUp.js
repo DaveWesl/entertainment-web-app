@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./SignUp.css";
 
 function SignUp() {
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -50,17 +52,19 @@ function SignUp() {
 
   return (
     <div className="login">
-      <svg
-        className="login-logo"
-        width="33"
-        height="27"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
-          fill="#FC4747"
-        />
-      </svg>
+      <Link to="/" className={location.pathname === "/"}>
+        <svg
+          className="login-logo"
+          width="33"
+          height="27"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
+            fill="#FC4747"
+          />
+        </svg>
+      </Link>
       <form className="login-form">
         <h1>Sign Up</h1>
         <input
@@ -71,9 +75,7 @@ function SignUp() {
           id="email"
           name="email"
           placeholder={
-            isEmptyEmail
-              ? "Email address can't be empty"
-              : "Email address"
+            isEmptyEmail ? "Email address can't be empty" : "Email address"
           }
           value={email}
           onChange={handleInputChange}
@@ -114,7 +116,9 @@ function SignUp() {
         </button>
         <div className="login-account">
           <p className="s">Already have an account?</p>
-          <p className="s login-sign-up">Login</p>
+          <Link to="/login" className={location.pathname === "/login"}>
+            <p className="s login-sign-up">Login</p>
+          </Link>
         </div>
       </form>
     </div>
