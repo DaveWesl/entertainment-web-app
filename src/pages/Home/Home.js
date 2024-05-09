@@ -20,7 +20,7 @@ function Home({ movies, handleBookmarkClick }) {
       <Navbar />
       <div className="home-div">
         <SearchBar />
-        <Trending />
+        <Trending movies={movies} handleBookmarkClick={handleBookmarkClick}/>
         <Recommended movies={filteredMovies} handleBookmarkClick={handleBookmarkClick} title="Recommended for you"/>
       </div>
       

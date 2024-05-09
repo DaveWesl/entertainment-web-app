@@ -7,19 +7,33 @@ function Navbar() {
 
   return (
     <div className="navbar-container">
-      <svg
-        className="navbar-logo"
-        width="33"
-        height="27"
-        xmlns="http://www.w3.org/2000/svg"
+      <Link
+        to="/"
+        className={
+          location.pathname === "/"
+        }
       >
-        <path
-          d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
-          fill="#FC4747"
-        />
-      </svg>
+        <svg
+          className="navbar-logo"
+          width="33"
+          height="27"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
+            fill="#FC4747"
+          />
+        </svg>
+      </Link>
       <div className="navbar-category">
-        <Link to="/" className={location.pathname === "/" ? "navbar-category-item active-link" : "navbar-category-item"}>
+        <Link
+          to="/"
+          className={
+            location.pathname === "/"
+              ? "navbar-category-item active-link"
+              : "navbar-category-item"
+          }
+        >
           <svg
             className="navbar-category-item"
             width="20"
@@ -32,7 +46,14 @@ function Navbar() {
             />
           </svg>
         </Link>
-        <Link to="/movies" className={location.pathname === "/movies" ? "navbar-category-item active-link" : "navbar-category-item"}>
+        <Link
+          to="/movies"
+          className={
+            location.pathname === "/movies"
+              ? "navbar-category-item active-link"
+              : "navbar-category-item"
+          }
+        >
           <svg
             className="navbar-category-item"
             width="20"
@@ -45,7 +66,14 @@ function Navbar() {
             />
           </svg>
         </Link>
-        <Link to="/series" className={location.pathname === "/series" ? "navbar-category-item active-link" : "navbar-category-item"}>
+        <Link
+          to="/series"
+          className={
+            location.pathname === "/series"
+              ? "navbar-category-item active-link"
+              : "navbar-category-item"
+          }
+        >
           <svg
             className="navbar-category-item"
             width="20"
@@ -58,7 +86,14 @@ function Navbar() {
             />
           </svg>
         </Link>
-        <Link to="/bookmarked" className={location.pathname === "/bookmarked" ? "navbar-category-item active-link" : "navbar-category-item"}>
+        <Link
+          to="/bookmarked"
+          className={
+            location.pathname === "/bookmarked"
+              ? "navbar-category-item active-link"
+              : "navbar-category-item"
+          }
+        >
           <svg
             className="navbar-category-item"
             width="17"

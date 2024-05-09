@@ -15,6 +15,7 @@ const TrendingItem = ({ movie, isBookmarkedProp, onBookmarkClick }) => {
   const handleBookmarkClick = () => {
     setIsBookmarked(!isBookmarked);
     onBookmarkClick(); // Aufruf der übergebenen Funktion
+    console.log('Bookmark Clicked!');
   };
 
   return (
