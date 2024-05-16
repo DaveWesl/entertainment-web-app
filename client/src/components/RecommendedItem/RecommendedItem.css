@@ -45,9 +45,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    .recommendeditem-container {
-        width: 65%;
-    }
+    
   }
   
   @media screen and (max-width: 450px) {
