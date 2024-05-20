@@ -34,15 +34,26 @@
   color: var(--red);
 }
 
-.login-button {
-  background-color: var(--red);
+.login-button,
+.login-button-guest {
   cursor: pointer;
   padding: 0.8rem;
   border: none;
   border-radius: 0.4rem;
 }
 
-.login-button:hover {
+.login-button {
+  background-color: var(--red);
+}
+
+.login-button-guest {
+  background-color: var(--grey);
+  color: var(--white);
+  width: 100%;
+}
+
+.login-button:hover,
+.login-button-guest:hover {
   background-color: var(--white);
   color: black;
 }
