@@ -1,0 +1,82 @@
+.login {
+  background-color: var(--dark);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue);
+  width: 40%;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  gap: 1.5rem;
+  border-radius: 1rem;
+}
+
+.login-input {
+  background-color: transparent;
+  border: none;
+  padding: 1rem;
+  border-bottom: 1px solid var(--grey);
+  caret-color: var(--red);
+}
+
+.login-input-empty {
+  border-color: var(--red);
+}
+
+.login-input-empty::placeholder {
+  color: var(--red);
+}
+
+.login-button,
+.login-button-guest {
+  cursor: pointer;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.login-button {
+  background-color: var(--red);
+}
+
+.login-button-guest {
+  background-color: var(--grey);
+  color: var(--white);
+  width: 100%;
+}
+
+.login-button:hover,
+.login-button-guest:hover {
+  background-color: var(--white);
+  color: black;
+}
+
+.login-account {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.login-sign-up {
+  color: var(--red);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .login-form {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .login-form {
+    width: 90%;
+  }
+}

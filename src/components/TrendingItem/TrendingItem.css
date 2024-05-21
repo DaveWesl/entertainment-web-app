@@ -1,0 +1,55 @@
+.trendingitem-container {
+    min-width: 25rem;
+    
+}
+
+.trendingitem-item-cart {
+    background-size: cover;
+    background-position: center;
+    height: 13rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    }
+
+.trendingitem-bookmark-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    background-color: var(--grey);
+
+    padding: 0.6rem;
+    border-radius: 50%;
+}
+
+.trendingitem-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.trendingitem-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.trendingitem-p {
+    color: rgb(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+@media screen and (max-width: 800px) {
+    .trendingitem-container {
+        width: 65%;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+
+  }
+

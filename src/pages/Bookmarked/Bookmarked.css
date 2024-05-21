@@ -1,0 +1,21 @@
+.bookmarked-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.bookmarked-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .bookmarked-container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 450px) {
+}
