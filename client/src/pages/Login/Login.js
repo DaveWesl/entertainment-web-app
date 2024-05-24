@@ -84,11 +84,6 @@ function Login() {
         >
           Login to your account
         </button>
-        <Link to="/" className={location.pathname === "/"}>
-          <button className="s login-button-guest" >
-            Login as Guest
-          </button>
-        </Link>
         <div className="login-account">
           <p className="s">Don’t have an account?</p>
           <Link to="/signup" className={location.pathname === "/signup"}>
